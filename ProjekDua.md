@@ -117,6 +117,10 @@ lib
 
 Fitur ini menyediakan form registrasi yang terdiri dari beberapa field input seperti **nama, email, password, jenis kelamin, program studi, tanggal lahir, serta persetujuan syarat & ketentuan**. Implementasi dilakukan menggunakan **Form** dan **TextFormField** dengan controller untuk setiap input sehingga data dapat diproses sebelum disimpan ke dalam Provider.
 
+<img width="957" height="776" alt="image" src="https://github.com/user-attachments/assets/4e26d85b-c431-4f51-b512-99369e7adf86" />
+<img width="957" height="691" alt="image" src="https://github.com/user-attachments/assets/6769f009-df4b-427c-95b1-9b761adb766f" />
+
+
 ```dart
 TextFormField(
   controller: _nameController,
@@ -124,29 +128,6 @@ TextFormField(
     labelText: 'Nama Lengkap',
     prefixIcon: Icon(Icons.person),
   ),
-)
-```
-### Show Cart Items with Quantity .✦ ݁˖
-
-Fitur ini menampilkan seluruh produk yang telah ditambahkan ke keranjang beserta jumlah (quantity)-nya. Implementasi berada pada cart_page.dart, dengan memanfaatkan Consumer<CartModel> untuk membaca daftar item. Form ini menjadi pusat pengumpulan seluruh data sebelum dikirim ke state management.
-
-<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/cdc3d369-b966-408e-bb4f-32233e10627c" />
-
-``` dart
-Consumer<CartModel>(
-  builder: (context, cart, child) {
-    return ListView(
-      children: cart.itemsList.map(
-        (item) => ListTile(
-          title: Text(item.product.name),
-          subtitle: Text('Qty: ${item.quantity}'),
-          trailing: Text(
-            'Rp ${item.totalPrice.toStringAsFixed(0)}',
-          ),
-        ),
-      ).toList(),
-    );
-  },
 )
 ```
 ### Real-time Validation .✦ ݁˖
@@ -172,7 +153,6 @@ TextFormField(
   },
 )
 ```
-
 ### Various Input Widgets .✦ ݁˖
 
 Aplikasi ini memanfaatkan berbagai widget input Flutter untuk meningkatkan pengalaman pengguna dalam mengisi form. Widget yang digunakan antara lain:
@@ -220,6 +200,9 @@ class RegistrationProvider extends ChangeNotifier {
 
 Halaman ini menampilkan seluruh peserta yang telah melakukan registrasi menggunakan ListView.builder. Data pada halaman ini langsung berasal dari Provider sehingga akan diperbarui secara otomatis ketika ada data baru.
 
+<img width="959" height="371" alt="image" src="https://github.com/user-attachments/assets/36c5f0b1-66c1-48f3-a8d6-a2867481de06" />
+
+
 ```dart
 ListView.builder(
   itemCount: provider.registrants.length,
@@ -238,6 +221,9 @@ ListView.builder(
 ### Registrant Detail Page .✦ ݁˖ .✦ ݁˖
 
 Halaman detail digunakan untuk menampilkan informasi lengkap dari peserta yang dipilih pada halaman daftar pendaftar. Navigasi ke halaman detail dilakukan dengan mengirimkan ID registrant melalui Navigator, dan halaman detail kemudian mengambil data dari Provider berdasarkan ID tersebut dan menampilkan seluruh informasi yang tersimpan.
+
+<img width="957" height="780" alt="image" src="https://github.com/user-attachments/assets/82a77d35-72ea-4215-b072-d616c4387634" />
+
 
 ```dart
 Navigator.pushNamed(
@@ -272,6 +258,9 @@ Stepper(
 
 Pengguna dapat menghapus data peserta langsung dari halaman daftar menggunakan tombol delete. Setelah data dihapus, Provider akan memperbarui daftar secara otomatis.
 
+<img width="958" height="800" alt="image" src="https://github.com/user-attachments/assets/52c66d5f-517c-4bbe-96de-31e05685172f" />
+
+
 ```dart
 IconButton(
   icon: const Icon(Icons.delete),
@@ -284,6 +273,8 @@ IconButton(
 ### Search Registrant .✦ ݁˖
 
 Fitur pencarian memungkinkan pengguna menemukan peserta dengan cepat berdasarkan nama.
+<img width="957" height="765" alt="image" src="https://github.com/user-attachments/assets/5e1e0e4b-f17c-47f8-a91a-e887135f1239" />
+
 ```dart
 TextField(
   decoration: const InputDecoration(
